@@ -1,4 +1,5 @@
 #include <iostream>
+#include <conio.h>
 #include "Common.h"
 
 void Setup(Snake& s) {
@@ -43,5 +44,32 @@ void Move(Snake& s) {
     }
     else {
         s.isGrowing = false;
+    }
+}
+
+void Input(Snake& s) {
+    if (_kbhit()) {
+        char key = _getch();
+        if (key == 'p' || key == 'P') {
+            isPaused = !isPaused;
+            gotoxy((WIDTH + 5) * 2, 10);
+            if (isPaused) cout << "PAUSED";
+            else cout << "      ";
+        }
+        else if (key == 'x' || key == 'X')
+            isGameOver = true;
+
+        if (!isPaused) {
+            switch (key) {
+            case 'a': case 'A':
+                if (s.dir != RIGHT) s.dir = LEFT; break;
+            case 'd': case 'D':
+                if (s.dir != LEFT) s.dir = RIGHT; break;
+            case 'w': case 'W':
+                if (s.dir != DOWN) s.dir = UP; break;
+            case 's': case 'S':
+                if (s.dir != UP) s.dir = DOWN; break;
+            }
+        }
     }
 }
