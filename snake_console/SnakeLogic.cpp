@@ -1,5 +1,6 @@
 #include <iostream>
 #include <conio.h>
+#include <ctime>
 #include "Common.h"
 
 bool hasWall = false;
@@ -105,4 +106,13 @@ void GenerateFood(Food& f, const Snake& s) {
             }
         }
     } while (redo);
+}
+
+bool CheckEat(Snake& s, Food& f) {
+    if (s.body[0].X == f.pos.X && s.body[0].Y == f.pos.Y) {
+        s.isGrowing = true;
+        score += 10;
+        return true;
+    }
+    return false;
 }
