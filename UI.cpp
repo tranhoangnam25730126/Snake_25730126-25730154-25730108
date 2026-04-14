@@ -27,12 +27,11 @@ void DrawWall(bool hasWall)
         cout << "#";
     }
 }
-void DrawSnake(Snake& s)
-{
+void DrawSnake(Snake& s){
     for (int i = 0; i < s.body.size(); i++)
     {
         gotoxy(s.body[i].X, s.body[i].Y);
-if (i == 0)
+        if (i == 0)
             cout << "O";
         else
             cout << "o";
