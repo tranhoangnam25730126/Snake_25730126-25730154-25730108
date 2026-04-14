@@ -2,6 +2,10 @@
 #include <conio.h>
 #include "Common.h"
 
+bool hasWall = false;
+int score;
+bool isPaused = false;
+
 void Setup(Snake& s) {
     s.dir = STOP;
     s.isGrowing = false;
@@ -72,4 +76,16 @@ void Input(Snake& s) {
             }
         }
     }
+}
+
+bool isCollision(Snake& s) {
+    COORD head = s.body[0];
+
+    if (hasWall)
+        if (head.X < 1 || head.X > WIDTH || head.Y < 1 || head.Y > HEIGHT) return true;
+
+    for (size_t i = 1; i < s.body.size(); i++)
+        if (head.X == s.body[i].X && head.Y == s.body[i].Y) return true;
+
+    return false;
 }
