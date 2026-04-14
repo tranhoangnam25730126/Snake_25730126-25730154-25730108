@@ -89,3 +89,20 @@ bool isCollision(Snake& s) {
 
     return false;
 }
+
+void GenerateFood(Food& f, const Snake& s) {
+    bool redo;
+    do {
+        redo = false;
+
+        f.pos.X = rand() % WIDTH + 1;
+        f.pos.Y = rand() % HEIGHT + 1;
+
+        for (auto p : s.body) {
+            if (p.X == f.pos.X && p.Y == f.pos.Y) {
+                redo = true;
+                break;
+            }
+        }
+    } while (redo);
+}
