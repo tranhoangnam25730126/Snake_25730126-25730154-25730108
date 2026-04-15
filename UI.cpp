@@ -41,6 +41,6 @@ void DrawFood(Food& f) {
 }
 
 void DrawScore(int score) {
-    gotoxy((WIDTH + 5) * 2, );
+    gotoxy((WIDTH + 5) * 2, 5);
     cout << "SCORE: " << score;
 }
