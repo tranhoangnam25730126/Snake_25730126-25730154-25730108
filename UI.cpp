@@ -33,3 +33,14 @@ void DrawSnake(Snake& s) {
         else cout << "()";
     }
 }
+void DrawFood(Food& f) {
+    gotoxy(f.pos.X * 2, f.pos.Y);
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 14);
+    cout << "$$";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7);
+}
+
+void DrawScore(int score) {
+    gotoxy((WIDTH + 5) * 2, );
+    cout << "SCORE: " << score;
+}
