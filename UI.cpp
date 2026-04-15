@@ -47,7 +47,7 @@ void DrawScore(int score) {
 void ShowMenu() {
     system("cls");
     gotoxy(WIDTH / 2, HEIGHT / 2 - 3);
-    cout << "  S N A K Ee  G A M E  ";
+    cout << "  S N A K E  G A M E  ";
 
     gotoxy(WIDTH - 10, HEIGHT / 2 - 1);
     cout << "1. SOLID WALLS";
